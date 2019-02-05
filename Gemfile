@@ -25,6 +25,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt'
 
+# use nokogiri
+gem 'nokogiri'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
