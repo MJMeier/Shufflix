@@ -1,10 +1,11 @@
 class Api::ShowsController < ApplicationController
   def read
 
+    # need to add params functionality
     doc = Nokogiri::HTML(open('https://instantwatcher.com/search?source=1+2+3&q=parks+and+recreation&sort=queue_count+desc&view=synopsis&infinite=on&content_type%5B%5D=1&content_type%5B%5D=2'))
 
     arr = []
-
+    # needs to be hash of show and number
     doc.css(".title-link").each do |link|
       if link.text != ""
         # p "TITLE: "
