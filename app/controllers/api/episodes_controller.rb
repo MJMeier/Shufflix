@@ -4,7 +4,7 @@ class Api::EpisodesController < ApplicationController
   # 80021755
   # 80067702
   # 80170693
-
+  
   def random
     selection = params[:id]
 
@@ -23,7 +23,6 @@ class Api::EpisodesController < ApplicationController
     ep = prng.rand(1..count)
 
     render json: {watch_episode: ep}
-
   end
 
 end
