@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create"
 
     get "/shows" => "shows#read"
+
+    get "/searches" => "searches#search" 
+
+    get "/episodes" => "episodes#random"
   end
 end
