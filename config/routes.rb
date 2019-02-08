@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     post "/sessions" => "sessions#create"
 
     get "/shows" => "shows#read"
+
+    get "/shows/:text" => "shows#season" 
   end
 end
