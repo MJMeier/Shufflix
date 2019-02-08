@@ -2,7 +2,7 @@ class Api::ShowsController < ApplicationController
   def read
 
     # need to add params functionality
-    doc = Nokogiri::HTML(open('https://instantwatcher.com/search?source=1+2+3&q=parks+and+recreation&sort=queue_count+desc&view=synopsis&infinite=on&content_type%5B%5D=1&content_type%5B%5D=2'))
+    doc = Nokogiri::HTML(open('https://instantwatcher.com/search?source=1+2+3&q=breaking+bad&sort=queue_count+desc&view=synopsis&infinite=on&content_type%5B%5D=1&content_type%5B%5D=2'))
 
     arr = []
     # needs to be hash of show and number
@@ -17,24 +17,23 @@ class Api::ShowsController < ApplicationController
       end
     end
 
+    # render json: {message: arr}
 
+    season = Nokogiri::HTML(open('https://instantwatcher.com/title/70135214?source=1%202%203&q=the%20office&view=synopsis&infinite=on&_pjax=%23filters-plus-results&content_type=1%202'))
 
+    # THIS GETS ALL EPISODE TITLES AND EPISODE COUNT!
+    count = 0
+    season.css(".episode-title").each do
+      # p node.text
+      count += 1
+    end
+    # p "TOTAL EPISODES:"
+    # p count
 
-    render json: {message: arr}
-# p doc.css(".item-group-container")
+    prng = Random.new
+    ep = prng.rand(1..count)
 
-#  THIS WORKS FOR SEARCH RESULTS!
-# also gets the value that you'll need to get the season ID for URL
-    # doc.css(".title-link").each do |link|
-    #   if link.text != ""
-    #     p "TITLE: "
-    #     p link.text
-    #     p "STUFF: "
-    #     p link.values[-1]
-    #     p "---------"
-    #     p "----------"
-    #   end
-    # end
+    render json: {watch_episode: ep}
 
 
   end
