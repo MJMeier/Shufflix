@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
     post "/searches" => "searches#search" 
 
-    get "/episodes" => "episodes#random"
+    post "/episodes" => "episodes#random"
   end
 end
