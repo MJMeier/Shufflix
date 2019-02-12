@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
     get "/shows" => "shows#read"
 
-    get "/searches" => "searches#search" 
+    post "/searches" => "searches#search" 
 
-    get "/episodes" => "episodes#random"
+    post "/episodes" => "episodes#random"
   end
 end

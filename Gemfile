@@ -25,6 +25,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jwt'
 
+# use rack cors gem
+gem 'rack-cors', require: 'rack/cors'
+
 # use nokogiri
 gem 'nokogiri'
 
