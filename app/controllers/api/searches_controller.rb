@@ -8,7 +8,7 @@ class Api::SearchesController < ApplicationController
     doc.css(".title-link").each do |link|
       if link.text != ""
     
-        arr.push(title: link.text, id: link.values[-1])
+        arr.push(title: link.text, id: link.values[-1], visible: false)
 
       end
     end
