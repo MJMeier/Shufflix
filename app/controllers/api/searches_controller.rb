@@ -3,6 +3,7 @@ class Api::SearchesController < ApplicationController
     results = params["text"]
     doc = Nokogiri::HTML(open("https://instantwatcher.com/search?source=1+2+3&q=" + results + "&sort=queue_count+desc&view=synopsis&infinite=on&content_type%5B%5D=1&content_type%5B%5D=2"))
 
+    # this works but doesn't grab pic
     # arr = []
     # # needs to be hash of show and number
     # doc.css(".title-link").each do |link|
