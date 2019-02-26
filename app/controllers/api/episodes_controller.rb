@@ -22,7 +22,7 @@ class Api::EpisodesController < ApplicationController
     prng = Random.new
     ep = prng.rand(1..count)
 
-    render json: {watch_episode: ep}
+    render json: { "watch episode": ep }
 
   end
 
