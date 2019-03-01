@@ -31,8 +31,13 @@ class Api::SearchesController < ApplicationController
     # get whole array
     arr = []
 
-    arr.push(content: doc.css(".item-group-container").inner_html)
-
+    doc.css(".item-group-container").children.each do |link|
+      arr.push(
+        id: link.child.next_element.child.attributes["data-title-id"].value,
+        content: link.inner_html,
+        visible: false
+        )
+    end
 
     render json: {results: arr}
   end
