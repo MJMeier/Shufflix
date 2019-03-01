@@ -14,18 +14,25 @@ class Api::SearchesController < ApplicationController
     #   end
     # end
 
-    base = "https://instantwatcher.com"
+    # base = "https://instantwatcher.com"
 
+    # fixed the pic src
+    # arr = []
+    # doc.css(".iw-title").each do |link|
+    #   arr.push(
+    #     title: link.child.next_element.text, 
+    #     # THIS IS HOW YOU GRAB THE PIC! WE DON'T NEED REGEX!!!
+    #     pic: link.child.child.attributes["src"].value,
+    #     id: link.child.next_element.child.attributes["data-title-id"].value,
+    #     visible: false
+    #     )
+    # end
+
+    # get whole array
     arr = []
-    doc.css(".iw-title").each do |link|
-      arr.push(
-        title: link.child.next_element.text, 
-        # THIS IS HOW YOU GRAB THE PIC! WE DON'T NEED REGEX!!!
-        pic: base + link.child.child.attributes["src"].value,
-        id: link.child.next_element.child.attributes["data-title-id"].value,
-        visible: false
-        )
-    end
+
+    arr.push(content: doc.css(".item-group-container").inner_html)
+
 
     render json: {results: arr}
   end
